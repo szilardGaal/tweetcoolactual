@@ -14,7 +14,7 @@
 
 <body>
 <div class="main">
-    <h1>Welcome to Tweetcool!</h1>
+    <h1><a href="index.jsp">Welcome to Tweetcool!</a></h1>
     <div class="left">
         <h2>Place your Tweet!</h2>
         <form action = "index" method = "POST">
@@ -50,7 +50,7 @@
             <td>poster:</td><td><input type="text" name="poster"></input></td>
           </tr>
           <tr>
-            <td>from:</td><td><input type="datetime-local"  name="from"></input></td>
+            <td>from:</td><td><input type="date" name="from" value="2019-02-02"></input></td>
           </tr>
         </table>
         <input type = "submit" value = "search" />

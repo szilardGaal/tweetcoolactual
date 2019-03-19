@@ -27,18 +27,15 @@ public class SearchServlet extends HttpServlet {
         int limit = Integer.parseInt(req.getParameter("limit"));
         int offset = Integer.parseInt(req.getParameter("offset"));
 
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd 'T' hh:mm");
-        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            date = df.parse(dateString);
+            Date date = df.parse(dateString);
+            List<Tweet> tweets = service.getFilteredTweets(poster, date, offset, limit);
+            req.setAttribute("tweets", tweets);
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        List<Tweet> tweets = service.getFilteredTweets(poster, date, offset, limit);
-
-        req.setAttribute("tweets", tweets);
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

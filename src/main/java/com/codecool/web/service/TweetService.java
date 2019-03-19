@@ -33,7 +33,15 @@ public final class TweetService {
         filtered.removeAll(removeByPoster);
         filtered.removeAll(removeByDate);
 
-        for (int i=offset; i < limit+offset; i++) {
+        int counter;
+
+        if (limit+offset > filtered.size()) {
+            counter = filtered.size();
+        } else {
+            counter = limit+offset;
+        }
+
+        for (int i=offset; i < counter; i++) {
             actual.add(filtered.get(i));
         }
 
