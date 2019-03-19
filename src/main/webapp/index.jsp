@@ -14,10 +14,10 @@
 
 <body>
 <div class="main">
-    <h1><a href="index.jsp">Welcome to Tweetcool!</a></h1>
+    <h1><a href="/tweetcool">Welcome to Tweetcool!</a></h1>
     <div class="left">
         <h2>Place your Tweet!</h2>
-        <form action = "index" method = "POST">
+        <form action = "" method = "POST">
             Your tweet: <br><textarea class = "content" name = "content"></textarea><br>
             Your name: <br><input class = "name" type = "text" name = "author">
             <input type = "submit" value = "Submit" />

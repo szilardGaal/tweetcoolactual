@@ -18,7 +18,7 @@ import java.util.List;
 @WebServlet("/search")
 public class SearchServlet extends HttpServlet {
 
-    private final TweetService service = new TweetService();
+    private final TweetService service = TweetService.getInstance();
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

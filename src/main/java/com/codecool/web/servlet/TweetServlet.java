@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/index")
+@WebServlet("")
 public class TweetServlet extends HttpServlet {
 
-    private final TweetService service = new TweetService();
+    private final TweetService service = TweetService.getInstance();
     private List<Tweet> tweets = service.getTweets();
 
     @Override

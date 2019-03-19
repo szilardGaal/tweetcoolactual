@@ -9,10 +9,19 @@ import java.util.List;
 
 public final class TweetService {
 
-    Tweet[] cucc = {new Tweet("cucc", "teszt szöveg1"),
-                    new Tweet("mucc", "teszt szöveg2"),
-                    new Tweet("Marci", "Zsanett legyél a szökőkútnál")};
-    private List<Tweet> tweets = new ArrayList<>(Arrays.asList(cucc));
+    private List<Tweet> tweets;
+    private static TweetService ourInstance = new TweetService();
+
+    private TweetService() {
+        tweets = new ArrayList<>(Arrays.asList(
+            new Tweet("cucc", "teszt szöveg1"),
+            new Tweet("mucc", "teszt szöveg2"),
+            new Tweet("Marci", "Zsanett legyél a szökőkútnál")));
+    }
+
+    public static TweetService getInstance() {
+        return ourInstance;
+    }
 
     public void addTweet(Tweet tweet) {
         tweets.add(tweet);
