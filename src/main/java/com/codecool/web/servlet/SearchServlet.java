@@ -33,9 +33,10 @@ public class SearchServlet extends HttpServlet {
             Date date = df.parse(dateString);
             List<Tweet> tweets = service.getFilteredTweets(poster, date, offset, limit);
             req.setAttribute("tweets", tweets);
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
         } catch (ParseException e) {
-            e.printStackTrace();
+            req.setAttribute("errorMessage", "blabla");
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
